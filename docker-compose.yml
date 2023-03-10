@@ -3,13 +3,19 @@ services:
   app1:
     build: ./app1
     ports:
-    - "5001:5000"
+    - "5000"
+    deploy:
+      mode: replicated
+      replicas: 2
   app2:
     build: ./app2
     ports:
-    - "5002:5000"
+    - "5000"
+    deploy:
+      mode: replicated
+      replicas: 2
   nginx:
-    build: ./nginx 
+    build: ./nginx
     ports:
     - "8080:80"
     depends_on:
